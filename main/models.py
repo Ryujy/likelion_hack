@@ -25,3 +25,4 @@ class Cloth_male(models.Model):
 
     # def __str__(self):
     #     return name
+    

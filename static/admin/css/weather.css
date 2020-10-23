@@ -1,0 +1,60 @@
+
+
+#weather_function{
+    width : 906px;
+    float : right;
+    display: block;
+    box-sizing: border-box;
+}
+
+.weather_info{
+    border-style: solid;
+    border-radius: 10px;
+    height : 120px;
+    background-color: #D6B9B9;
+    color: white;
+}
+
+ul li{
+    list-style-type: none;
+    display: inline;
+}
+
+.weather_title{
+    font-size : 24px;
+    margin : 20px auto 10px 0px;
+}
+
+#weather_style{
+    display : flex;
+    justify-content: space-between;
+    
+}
+
+.weather_style1{
+    width : 440px;
+    height: 300px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #F6B081;
+    color: white;
+}
+
+.style_name{
+
+}
+.style_photo{
+
+}
+.style_price{
+
+}
+
+.weather_style2{
+    width : 440px;
+    height: 300px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: #E29898;
+    color: white;
+}

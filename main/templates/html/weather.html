@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> weather_clothes </title>
+    <link rel="stylesheet" type="text/css" href="../../../static/admin/css/weather.css">
+
+</head>
+<body>
+    <section id = "weather_function">
+        <script type = "text/javascript">
+            function show_layer(div_name){
+                document.all.div_01.style.display="none";
+
+                document.all.div_02.style.display="none";
+
+                document.all.div_03.style.display="none";
+
+                document.all.div_04.style.display="none";
+
+                switch(div_name){
+                    case '1':
+                    document.all.div_01.style.display="";
+                    break;
+
+                    case '2':
+                    document.all.div_02.style.display="";
+                    break;
+
+                    case '3':
+                    document.all.div_03.style.display="";
+                    break;
+
+                    case '4':
+                    document.all.div_04.style.display="";
+                    break;
+                }
+
+            }           
+        </script>
+
+        <div class="weather_info">
+            <ul>
+                <li>일주일간 날씨</li>
+                <li> 월 </li>
+                <li> 화 </li>
+                <li> 수 </li>
+                <li> 목 </li>
+                <li> 금 </li>
+                <li> 토 </li>
+                <li> 일 </li>
+            </ul>
+        </div>
+
+        <div class="weather_title">기온에 맞는 코디추천</div>
+
+        <div id="weather_style">
+            <div class="weather_style1">
+                <table>
+                    <tr>
+                        <td>톰보이 <br>
+                            울 피크드 카라 셋업자켓</td>
+                        <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                    </tr>
+                    <tr>
+                        <td class="">299,000원</td>
+                    </tr>
+                </table>
+            </div>
+    
+            <div class="weather_style2">
+                <table>
+                    <tr>
+                        <td>시크폭스 <br>
+                            블랜딩 뒷밴딩트임 슬랙스    </td>
+                        <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                    </tr>
+                    <tr>
+                        <td>16,930원</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+
+    </section>
+</body>
+</html>

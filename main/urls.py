@@ -4,5 +4,6 @@ from main import views
 
 urlpatterns = [
     path('', views.home, name="index"),
-    path('', views.temperature),
+    path('print/', views.print), # print all
+    path('temp/', views.temperature), # print checkbox
 ]

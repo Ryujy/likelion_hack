@@ -64,6 +64,3 @@ def weather(request):
         associate_fields= zip(days_list, image_list,maxtemp_list, mintemp_list)
         return render(request, 'weatherPage.html',{'weather_data': weather_data, 'associate':associate_fields})    
 
-    
-
-

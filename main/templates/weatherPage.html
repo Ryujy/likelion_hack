@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Google Sans';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Google Sans Regular'), local('GoogleSans-Regular'), url(//fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Kwp5eKQtGBlc.woff2)format('woff2');
+            unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+        }
+
+
+
+        .wob_ds {
+            border-radius: 1px;
+            background-color: #fcfcfc;
+            border: 1px solid #e9e9e9;
+            margin: 0;
+        }
+
+        .wob_df {
+            -webkit-transition-duration: 200ms, 200ms, 200ms;
+            -webkit-transition-property: background-image, border, font-weight;
+            border: 1px solid transparent;
+            display: inline-block;
+            height: 90px;
+            line-height: 1;
+            text-align: center;
+            width: 73px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form method="GET">
+        <input type="text" name="city" id="city" value="{{request.GET.city}}" placeholder="도시 이름입력하세요">
+        <input type="submit" value="submit" />
+    </form>
+    {% if weather_data %}
+    <div class="g knavi obcontainer mod" data-md="2">
+        <!--m-->
+        <div data-hveid="CAIQAA" data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQohIwAHoECAIQAA">
+
+            <div class="vk_c nawv0d" id="wob_wc"><span aria-level="3" role="heading">
+                    <div class="wob_loc mfMhoc vk_gy vk_h" id="wob_loc">{{weather_data.region}}</div>
+                    <div class="wob_dts vk_gy vk_sh" id="wob_dts">{{weather_data.date_time}}</div>
+                    <div class="wob_dcp" id="wob_dcp"><span class="vk_gy vk_sh" id="wob_dc">{{weather_data.desc}}</span>
+                    </div>
+                </span>
+                <div id="wob_d"
+                    style="font:16px arial,helvetica,sans-serif;padding:20px 0 0;-webkit-touch-callout:none;-webkit-user-select:none">
+                    <div><img class="wob_tci" alt="Clear" src="//ssl.gstatic.com/onebox/weather/64/sunny.png"
+                            id="wob_tci">
+                        <div class="Ab33Nc" aria-level="3" role="heading">
+                            <div>
+                                <div class="vk_bk TylWce"><span class="wob_t TVtOme" id="wob_tm"
+                                        style="display:inline">{{weather_data.temp}}°C</span><span class="wob_t"
+                                        id="wob_ttm" style="display:none">39</span></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="gic rr3bxd">
+                    <div class="wob_dfc" id="wob_dp" data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQimswAHoECAIQDA" style="left: 0px;
+                    top: 0px;
+                    transform: translate3d(0px, 0px, 0px);
+                    display: flex;">
+                        {% for day, image, maxtemp, mintemp in associate%}
+                        <div class="wob_df wob_ds" data-wob-di="0" role="button" tabindex="0"
+                            data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQi2soADAAegQIAhAN">
+                            <div class="QrNVmd Z1VzSb" aria-label="Saturday">{{day}}</div>
+                            <div class="DxhUm"><img class="uW5pk" alt="Sunny"
+                                    src="{{image}}"></div>
+                            <div class="wNE31c">
+                                <div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">{{maxtemp}}</span><span
+                                        class="wob_t" style="display:none">56</span>&deg;</div>
+                                <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">{{mintemp}}</span><span
+                                        class="wob_t" style="display:none">37</span>&deg;</div>
+                            </div>
+                        </div>
+                        {%endfor%}
+                    </div>
+                </div>
+            </div>
+  
+        </div>
+        <!--n-->
+
+
+
+    </div>
+    {% endif %}
+</body>
+
+</html>

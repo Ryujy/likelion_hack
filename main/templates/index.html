@@ -9,5 +9,12 @@
     hello welcome to index page 
     Do something
     
+    {% for item in items %}
+    <div>
+        <p>{{ items.name }}</p>
+    </div>
+    {% endfor %}
+    {% block contents %} {% endblock %}
+
 </body>
 </html>

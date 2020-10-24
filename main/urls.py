@@ -5,6 +5,7 @@ from main import views
 urlpatterns = [
     path('weather/',views.weather, name="weatherPage"),   
     path('', views.home, name="index"),
-    path('temperature/', views.temperature, name="temperature")
+    path('temperature/', views.temperature, name="temperature"),
+    
 
 ]

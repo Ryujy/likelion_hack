@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <style>
         @font-face {
             font-family: 'Google Sans';
@@ -76,22 +78,23 @@
                     display: flex;">
                         {% for day, image, maxtemp, mintemp in associate%}
                         <div class="wob_df wob_ds" data-wob-di="0" role="button" tabindex="0"
-                            data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQi2soADAAegQIAhAN">
+                            data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQi2soADAAegQIAhAN" onclick="_clickTab()">
                             <div class="QrNVmd Z1VzSb" aria-label="Saturday">{{day}}</div>
-                            <div class="DxhUm"><img class="uW5pk" alt="Sunny"
-                                    src="{{image}}"></div>
+                            <div class="DxhUm"><img class="uW5pk" alt="Sunny" src="{{image}}"></div>
                             <div class="wNE31c">
-                                <div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">{{maxtemp}}</span><span
-                                        class="wob_t" style="display:none">56</span>&deg;</div>
-                                <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">{{mintemp}}</span><span
-                                        class="wob_t" style="display:none">37</span>&deg;</div>
+                                <div class="vk_gy gNCp2e"><span class="wob_t"
+                                        style="display:inline">{{maxtemp}}</span><span class="wob_t"
+                                        style="display:none">56</span>&deg;</div>
+                                <div class="QrNVmd ZXCv8e"><span class="wob_t"
+                                        style="display:inline">{{mintemp}}</span><span class="wob_t"
+                                        style="display:none">37</span>&deg;</div>
                             </div>
                         </div>
                         {%endfor%}
                     </div>
                 </div>
             </div>
-  
+
         </div>
         <!--n-->
 
@@ -99,6 +102,40 @@
 
     </div>
     {% endif %}
+
+    {% for item in items %}
+    <div>
+        <p><img src="{{ item.photo.url }}" style="width: 100px; height: 100px;"></p>
+        <p>{{ item.name }}</p>
+        <p>{{ item.brand }}</p>
+        <p>{{ item.price }}</p>
+        <p>{{ item.color }}</p>
+        <p>{{ item.size }}</p>
+    </div>
+    <!-- 전체출력 -->
+
+    <!-- checkbox -->
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+                <input type="checkbox" aria-label="Checkbox for following text input">
+            </div>
+        </div>
+        <input type="text" class="form-control" aria-label="Text input with checkbox">
+    </div>
+
+
+    <!-- checkbox -->
+    {% endfor %}
 </body>
 
 </html>
+<script>
+
+    function _clickTab(){
+        console.log("hello")
+    }
+$(document).ready(function(){
+   
+    })
+</script>

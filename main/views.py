@@ -5,6 +5,7 @@ import json
 from urllib.request import urlopen
 import requests
 from bs4 import BeautifulSoup
+from .models import *
 
 def weather(request):
     weather_data = None
@@ -64,15 +65,6 @@ def weather(request):
         associate_fields= zip(days_list, image_list,maxtemp_list, mintemp_list)
         return render(request, 'weatherPage.html',{'weather_data': weather_data, 'associate':associate_fields})    
 
-<<<<<<< HEAD
-=======
-    
-
-
-=======
-from .models import *
-
-
 def home(request):
     return render(request, 'index.html')
 
@@ -130,15 +122,8 @@ def temperature(request, max_temp, min_temp):
 
     elif (query == '26to'):
         items = models.Cloth.objects.filter(temp=query)
-<<<<<<< HEAD
-        first_filter_items = items.objects.filter(max_temp)
-        last_filter_items = first_filter.objects.filter(min_temp)
-        return render(request, "checkbox.html", {"last_filter_items": last_filter_items})
-=======
         first_filter = items.objects.filter(max_temp)
         last_filter = first_filter.objects.filter(min_temp)
 
     return render(request, "index.html", {"last_filter": last_filter})
->>>>>>> 8ce72b43dc7b8c8857b9dd5767786680afa992b8
->>>>>>> cb3488b9cb6ab8d9777f84bced4db3ce9463d9fb
->>>>>>> 435619e6dfa9cd0bc55fe8b8727adf8b215486fc
+

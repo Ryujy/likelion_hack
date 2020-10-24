@@ -1,41 +1,427 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- {% block head %} {% endblock %} -->
-</head>
-<body>
-    hello welcome to index page 
-    Do something
-    
-    <!-- 전체출력 -->
-    {% for item in items %}
-    <div>
-        <p><img src="{{ item.photo.url }}" style="width: 100px; height: 100px;"></p>
-        <p>{{ item.name }}</p>
-        <p>{{ item.brand }}</p>
-        <p>{{ item.price }}</p>
-        <p>{{ item.color }}</p>
-        <p>{{ item.size }}</p>
-    </div>
-    <!-- 전체출력 -->
+{% extends 'base.html' %}
+{% block contents %}
 
-    <!-- checkbox -->
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <div class="input-group-text">
-            <input type="checkbox" aria-label="Checkbox for following text input">
-          </div>
+
+<section class="srchResultContentArea">
+    <section id = "weather_function">
+        <div class="weather_title">기온에 맞는 코디추천</div>
+        <div class="weather_info">
+            <p>원하시는 날씨를 선택하세요.</p>
+            {% if weather_data %}
+            <div class="g knavi obcontainer mod" data-md="2">
+                <!--m-->
+                <div data-hveid="CAIQAA" data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQohIwAHoECAIQAA">
+
+                    <div class="vk_c nawv0d" id="wob_wc"><span aria-level="3" role="heading">
+                            <div class="wob_loc mfMhoc vk_gy vk_h" id="wob_loc">{{weather_data.region}}</div>
+                            <div class="wob_dts vk_gy vk_sh" id="wob_dts">{{weather_data.date_time}}</div>
+                            <div class="wob_dcp" id="wob_dcp"><span class="vk_gy vk_sh" id="wob_dc">{{weather_data.desc}}</span>
+                            </div>
+                        </span>
+                        <div id="wob_d"
+                            style="font:16px arial,helvetica,sans-serif;padding:20px 0 0;-webkit-touch-callout:none;-webkit-user-select:none">
+                            <div><img class="wob_tci" alt="Clear" src="//ssl.gstatic.com/onebox/weather/64/sunny.png"
+                                    id="wob_tci">
+                                <div class="Ab33Nc" aria-level="3" role="heading">
+                                    <div>
+                                        <div class="vk_bk TylWce"><span class="wob_t TVtOme" id="wob_tm"
+                                                style="display:inline">{{weather_data.temp}}°C</span><span class="wob_t"
+                                                id="wob_ttm" style="display:none">39</span></div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="gic rr3bxd">
+                            <div class="wob_dfc" id="wob_dp" data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQimswAHoECAIQDA" style="left: 0px;
+                            top: 0px;
+                            transform: translate3d(0px, 0px, 0px);
+                            display: flex;">
+                                {% for day, image, maxtemp, mintemp in associate%}
+                                <div class="wob_df wob_ds" data-wob-di="0" role="button" tabindex="0"
+                                    data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQi2soADAAegQIAhAN">
+                                    <div class="QrNVmd Z1VzSb" aria-label="Saturday">{{day}}</div>
+                                    <div class="DxhUm"><img class="uW5pk" alt="Sunny"
+                                            src="{{image}}"></div>
+                                    <div class="wNE31c">
+                                        <div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">{{maxtemp}}</span><span
+                                                class="wob_t" style="display:none">56</span>&deg;</div>
+                                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">{{mintemp}}</span><span
+                                                class="wob_t" style="display:none">37</span>&deg;</div>
+                                    </div>
+                                </div>
+                                {%endfor%}
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <!--n-->
+
+
+
+            </div>
+            {% endif %}
         </div>
-        <input type="text" class="form-control" aria-label="Text input with checkbox">
-      </div>
-
-
-    <!-- checkbox -->
-    {% endfor %}
-    {% block contents %} {% endblock %}
-
-</body>
-</html>
+        <div id="sub1_area" class="weather_style"> <!--1-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="sub2_area" class="weather_style"> <!--2-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="sub3_area" class="weather_style"> <!--3-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="sub4_area" class="weather_style"> <!--4-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="sub5_area" class="weather_style"> <!--5-->
+                        <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="sub6_area" class="weather_style"> <!--6-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div id="sub7_area" class="weather_style"> <!--7-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="" alt="제품사진"></td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="srchResultInnerSection _c9_product_area">
+        <div class="srchResultProductArea">
+            <div class="srchResultSortArea">
+                <div class="srchResultSort">
+                    <div class="srchResultSortColomn">
+                        <ul class="srchResultSortOptions">
+                            <li class="srchFilterOption">
+                                <label>
+                                    <input type="radio" name="sortProduct" value="1" checked="checked" class="_srchProductSortingList"> 
+                                    <span class="srchFilterOptionText">롯데ON 랭킹순</span>
+                                </label> 
+                                <div class="srchToolTipBox">
+                                    <button type="button" class="srchToolTipButton tooltip-target big">
+                                        <span class="blind">안내문구</span>
+                                    </button> 
+                                    <div class="srchToolTipText">
+                                        <p>검색 정확도 및 판매 실적 등을 점수화하여 상품을 정렬합니다.</p> 
+                                        <em>(단, 광고 상품은 별도 기준에 따라 상단 정렬)</em> 
+                                        <button type="button" class="srchToolTipButtonClose">
+                                            <span class="blind">닫기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li> 
+                            <li class="srchFilterOption">
+                                <label>
+                                    <input type="radio" name="sortProduct" value="2" class="_srchProductSortingList"> 
+                                    <span class="srchFilterOptionText">판매순</span>
+                                </label> 
+                                <div class="srchToolTipBox">
+                                    <button type="button" class="srchToolTipButton tooltip-target big">
+                                        <span class="blind">안내문구</span>
+                                    </button> 
+                                    <div class="srchToolTipText">
+                                        <p>최근 30일 동안 많이 판매된 상품을 기준으로 정렬합니다.</p> 
+                                        <button type="button" class="srchToolTipButtonClose">
+                                            <span class="blind">닫기</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li> 
+                            <li class="srchFilterOption">
+                                <label>
+                                    <input type="radio" name="sortProduct" value="3" class="_srchProductSortingList"> 
+                                    <span class="srchFilterOptionText">리뷰 많은순</span>
+                                </label>
+                            </li> 
+                            <li class="srchFilterOption">
+                                <label>
+                                    <input type="radio" name="sortProduct" value="4" class="_srchProductSortingList"> 
+                                    <span class="srchFilterOptionText">최신순</span>
+                                </label>
+                            </li> 
+                            <li class="srchFilterOption srchFilterOptionPrice">
+                                <label>
+                                    <input type="radio" name="sortProduct" value="5" class="_srchProductSortingList"> 
+                                    <span class="srchFilterOptionText">낮은 가격순</span>
+                                </label>
+                            </li> 
+                            <li class="srchFilterOption srchFilterOptionPrice">
+                                <label>
+                                    <input type="radio" name="sortProduct" value="6" class="_srchProductSortingList"> 
+                                    <span class="srchFilterOptionText">높은 가격순</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div> 
+                    <div class="srchResultSortColomn">
+                        <label class="srchResultCompareButton srchCheckboxButton">
+                            <input type="checkbox" name="filterCompare" data-area="srch_pdtab_compare" data-object="id=srch_pdtab_compare"> 
+                            <span class="srchRoundButton">상품 비교</span>
+                        </label> 
+                        <div class="srchSelectBox">
+                            <div class="srchSelectBoxInnerWrap">
+                                <div class="srchSelectTrigger">
+                                    <button type="button" class="srchSelectTriggerButton">60개씩 보기</button>
+                                </div> 
+                                <div class="srchSelectOptions">
+                                    <ul>
+                                        <li>
+                                            <button type="button">36개씩 보기</button>
+                                        </li> 
+                                        <li>
+                                            <button type="button">48개씩 보기</button>
+                                        </li> 
+                                        <li>
+                                            <button type="button" class="active">60개씩 보기</button>
+                                        </li> 
+                                        <li>
+                                            <button type="button">72개씩 보기</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> 
+                        <button type="button" class="srchResultStyleButton">
+                            <span class="blind">리스트보기</span>
+                        </button>
+                    </div>
+                </div>
+            </div> 
+            <div id="c9_navigate1" data-area="cate_contents" class="srchProductArea srchProductGridFour grid">
+                <ul class="srchProductList rankListType">
+                    {% for item in items %}				
+                    <li class="srchProductItem">
+                        <div class="srchGridProductUnit">
+                            <div class="srchProductUnitImageArea">
+                                <a href="" class="srchGridProductUnitLink" target="_blank" rel="noopener noreferrer">
+                                    <div class="srchThumbImageWrap">
+                                        <img src="{{ item.photo.url }}" > 
+                                    </div>
+                                    <div class="srchProductIconArea">
+                                    </div>
+                                </a>
+                                <div class="srchInputCompareArea">
+                                    <input type="checkbox" name="compareChk" value="lo1337013692_1337013693" title="상품비교 선택">
+                                </div>
+                            </div>
+                            <a href="" class="srchGridProductUnitLink " target="_blank" rel="noopener noreferrer">
+                                <div class="srchProductUnitInfoArea">
+                                    <div class="srchProductInfoColumn">
+                                        <div class="srchProductUnitTitle">
+                                            <strong class="srchProductUnitVendor">{{ item.brand }}</strong>
+                                            {{ item.name }}
+                                        </div>
+                                    </div>
+                                    <div class="srchProductInfoColumn">
+                                        <div class="srchProductUnitPriceArea">
+                                            <span class="srchCurrentPrice"><strong>{{ item.price }}</strong>원</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+                
+                <div class="srchPagination">
+                    <span class="srchPaginationActive">1</span>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#">2</a>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#">3</a>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#">4</a>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#">5</a>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#">6</a>
+                    <span class="srchPaginationSkip">...</span>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#">35</a>
+                    <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;u9=navigate&amp;u8=EC10100000&amp;login=Y&amp;mallId=1#" class="srchPaginationNext">
+                        <span class="blind">다음</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

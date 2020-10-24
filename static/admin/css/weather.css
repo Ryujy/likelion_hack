@@ -1,8 +1,7 @@
 
 
 #weather_function{
-    width : 906px;
-    float : right;
+    width : 100%;
     display: block;
     box-sizing: border-box;
 }
@@ -10,14 +9,35 @@
 .weather_info{
     border-style: solid;
     border-radius: 10px;
-    height : 120px;
+    height : 200px;
     background-color: #D6B9B9;
     color: white;
+    text-align: center;
 }
 
-ul li{
+.active{
+    color: hotpink;
+}
+
+.weather_info li: {
+    color : red;
+}
+.weather_info p{
+    font-size: 20px;
+}
+
+.weather_info li {
     list-style-type: none;
-    display: inline;
+    display: inline-flex;
+    justify-content: space-around;
+    
+}
+
+.weather_info ul {
+    display : flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0;
 }
 
 .weather_title{
@@ -25,14 +45,22 @@ ul li{
     margin : 20px auto 10px 0px;
 }
 
-#weather_style{
-    display : flex;
-    justify-content: space-between;
+.weather_style{
     
+    justify-content: space-between;
+    display: none;
+}
+
+.align{
+    display: flex;
+    justify-content: space-between;
 }
 
 .weather_style1{
-    width : 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width : 49%;
     height: 300px;
     border-style: solid;
     border-radius: 10px;
@@ -40,18 +68,11 @@ ul li{
     color: white;
 }
 
-.style_name{
-
-}
-.style_photo{
-
-}
-.style_price{
-
-}
-
 .weather_style2{
-    width : 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width : 49%;
     height: 300px;
     border-style: solid;
     border-radius: 10px;

@@ -6,81 +6,324 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> weather_clothes </title>
     <link rel="stylesheet" type="text/css" href="../../../static/admin/css/weather.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            $('#sub1').click(function(){
+                $('#sub1').addClass('active');
+                $('.weather_title').show();
+                $('#sub1_area').show();
+                $('#sub2_area').hide();
+                $('#sub3_area').hide();
+                $('#sub4_area').hide();
+                $('#sub5_area').hide();
+                $('#sub6_area').hide();
+                $('#sub7_area').hide();
+            })
+            $('#sub2').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').show();
+                $('#sub3_area').hide();
+                $('#sub4_area').hide();
+                $('#sub5_area').hide();
+                $('#sub6_area').hide();
+                $('#sub7_area').hide();
+            })
+            $('#sub3').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').hide();
+                $('#sub3_area').show();
+                $('#sub4_area').hide();
+                $('#sub5_area').hide();
+                $('#sub6_area').hide();
+                $('#sub7_area').hide();
+            })
+
+            $('#sub3').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').hide();
+                $('#sub3_area').show();
+                $('#sub4_area').hide();
+                $('#sub5_area').hide();
+                $('#sub6_area').hide();
+                $('#sub7_area').hide();
+            })
+
+            $('#sub4').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').hide();
+                $('#sub3_area').hide();
+                $('#sub4_area').show();
+                $('#sub5_area').hide();
+                $('#sub6_area').hide();
+                $('#sub7_area').hide();
+            })
+
+            $('#sub5').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').hide();
+                $('#sub3_area').hide();
+                $('#sub4_area').hide();
+                $('#sub5_area').show();
+                $('#sub6_area').hide();
+                $('#sub7_area').hide();
+            })
+
+            $('#sub6').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').hide();
+                $('#sub3_area').hide();
+                $('#sub4_area').hide();
+                $('#sub5_area').hide();
+                $('#sub6_area').show();
+                $('#sub7_area').hide();
+            })
+
+            $('#sub7').click(function(){
+                $('.weather_title').show();
+                $('#sub1_area').hide();
+                $('#sub2_area').hide();
+                $('#sub3_area').hide();
+                $('#sub4_area').hide();
+                $('#sub5_area').hide();
+                $('#sub6_area').hide();
+                $('#sub7_area').show();
+            })
+        })
+    </script>
 
 </head>
 <body>
     <section id = "weather_function">
-        <script type = "text/javascript">
-            function show_layer(div_name){
-                document.all.div_01.style.display="none";
-
-                document.all.div_02.style.display="none";
-
-                document.all.div_03.style.display="none";
-
-                document.all.div_04.style.display="none";
-
-                switch(div_name){
-                    case '1':
-                    document.all.div_01.style.display="";
-                    break;
-
-                    case '2':
-                    document.all.div_02.style.display="";
-                    break;
-
-                    case '3':
-                    document.all.div_03.style.display="";
-                    break;
-
-                    case '4':
-                    document.all.div_04.style.display="";
-                    break;
-                }
-
-            }           
-        </script>
-
+        <div class="weather_title">기온에 맞는 코디추천</div>
+        
         <div class="weather_info">
+            <p>원하시는 날씨를 선택하세요.</p>
             <ul>
-                <li>일주일간 날씨</li>
-                <li> 월 </li>
-                <li> 화 </li>
-                <li> 수 </li>
-                <li> 목 </li>
-                <li> 금 </li>
-                <li> 토 </li>
-                <li> 일 </li>
+                <li id="sub1"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
+                <li id="sub2"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
+                <li id="sub3"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
+                <li id="sub4"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
+                <li id="sub5"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
+                <li id="sub6"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
+                <li id="sub7"> <div class="wob_df" data-wob-di="6" role="button" tabindex="0" data-ved="2ahUKEwjaxLHPxMzsAhXBFIgKHZeKB6sQi2soBjAAegQIBBAT"><div class="QrNVmd Z1VzSb" aria-label="금요일">금</div><div class="DxhUm"><img class="uW5pk" alt="맑음" src="//ssl.gstatic.com/onebox/weather/48/sunny.png" data-atf="1"></div><div class="wNE31c"><div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">18</span><span class="wob_t" style="display:none">64</span>°</div><div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">3</span><span class="wob_t" style="display:none">38</span>°</div></div></div> </li>
             </ul>
         </div>
 
-        <div class="weather_title">기온에 맞는 코디추천</div>
-
-        <div id="weather_style">
-            <div class="weather_style1">
-                <table>
-                    <tr>
-                        <td>톰보이 <br>
-                            울 피크드 카라 셋업자켓</td>
-                        <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
-                    </tr>
-                    <tr>
-                        <td class="">299,000원</td>
-                    </tr>
-                </table>
+        <div id="sub1_area" class="weather_style"> <!--1-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
-    
-            <div class="weather_style2">
-                <table>
-                    <tr>
-                        <td>시크폭스 <br>
-                            블랜딩 뒷밴딩트임 슬랙스    </td>
-                        <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
-                    </tr>
-                    <tr>
-                        <td>16,930원</td>
-                    </tr>
-                </table>
+        </div>
+
+        <div id="sub2_area" class="weather_style"> <!--2-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub3_area" class="weather_style"> <!--3-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub4_area" class="weather_style"> <!--4-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub5_area" class="weather_style"> <!--5-->
+                        <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub6_area" class="weather_style"> <!--6-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="sub7_area" class="weather_style"> <!--7-->
+            <div class="align">
+                <div class="weather_style1">
+                    <table class="table">
+                        <tr>
+                            <td>톰보이 <br>
+                                울 피크드 카라 셋업자켓</td>
+                            <td rowspan="2"><img src="../../../static/admin/img/jacket.png"</td>
+                        </tr>
+                        <tr>
+                            <td>299,000원</td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div class="weather_style2">
+                    <table>
+                        <tr>
+                            <td>시크폭스 <br>
+                                블랜딩 뒷밴딩트임 슬랙스    </td>
+                            <td rowspan="2"><img src="../../../static/admin/img/pants.png"></td>
+                        </tr>
+                        <tr>
+                            <td>16,930원</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
         

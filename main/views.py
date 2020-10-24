@@ -7,8 +7,6 @@ import requests
 from bs4 import BeautifulSoup
 from .models import *
 
-
-
 def weather(request):
     weather_data = None
     days_list=[]
@@ -40,8 +38,7 @@ def weather(request):
             __mintemp= mintemp_all.find('span', attrs={'class':'wob_t'}).text
             mintemp_list.append(__mintemp)                      
         associate_fields= zip(days_list, image_list,maxtemp_list, mintemp_list)
-        items = Cloth.objects.all()    
-        return render(request,'weatherPage.html',{'weather_data': weather_data, 'associate':associate_fields, 'items': items})
+        return render(request,'weatherPage.html',{'weather_data': weather_data, 'associate':associate_fields})
     else:
         html_content = getData('seoul')
         soup = BeautifulSoup(html_content.text, "html.parser")
@@ -66,11 +63,8 @@ def weather(request):
             __mintemp= mintemp_all.find('span', attrs={'class':'wob_t'}).text
             mintemp_list.append(__mintemp)                      
         associate_fields= zip(days_list, image_list,maxtemp_list, mintemp_list)
-        items = Cloth.objects.all()
-        return render(request, 'weatherPage.html',{'weather_data': weather_data, 'associate':associate_fields,'items': items})    
+        return render(request, 'weatherPage.html',{'weather_data': weather_data, 'associate':associate_fields})    
 
-<<<<<<< HEAD
-=======
 def home(request):
     items = Cloth.objects.all()
 
@@ -130,12 +124,10 @@ def home(request):
             mintemp_list.append(__mintemp)                      
         associate_fields= zip(days_list, image_list,maxtemp_list, mintemp_list)
         return render(request, 'index.html',{'weather_data': weather_data, 'associate':associate_fields, "items": items}) 
->>>>>>> e9f1a819842d04cdcb34c27cc8517bfd08641585
 
 # 전체 출력
-def home(request):
+def print(request):
     items = Cloth.objects.all()
-
     return render(request, "index.html", {"items": items})
 
 # 온도 나눠서 가져오기 (checkbox)

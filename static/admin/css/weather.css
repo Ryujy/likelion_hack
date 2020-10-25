@@ -16,12 +16,9 @@
 }
 
 .active{
-    color: hotpink;
+    color: saddlebrown;
 }
 
-.weather_info li: {
-    color : red;
-}
 .weather_info p{
     font-size: 20px;
 }

@@ -54,7 +54,7 @@ ROOT_URLCONF = 'likelion_hack.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['main/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

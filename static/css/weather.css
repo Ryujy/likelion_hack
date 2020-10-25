@@ -95,3 +95,42 @@
     text-align: center;
     width: 73px;
 } */
+
+.srchFilterAccordionButton{
+    padding: 5px 0;
+}
+
+.srchFilterArea h3{
+    padding: 10px 0;
+}
+
+.srchFilterShortCut {
+    padding-top: 10px;
+}
+
+.srchFiltering input+span {
+    font-size: 12px;
+}
+
+
+.srchFilterOption, .srchFiltering, .srchRating .srchRatingScore, .srchFilteringText {
+    font-size: 12px;
+}
+
+.srchFilterPriceRangeArea input {
+    height: 22px;
+}
+
+.srchFilterAccordionPanel > ul{
+    padding-top: 10px;
+}
+
+.fixed{
+    position: fixed;
+    top: 0;
+    margin-top: 10px;
+}
+
+.srchFilterOption{
+    margin-bottom: 5px;
+}

@@ -416,26 +416,64 @@
         <link rel="stylesheet" type="text/css" href="../../../static/css/weather.css">    
         <script>
         
-            
+        $(document).ready(function(){
+        $('.wob_df').click(function(e){ 
+            $('.wob_df').addClass('active');
+            e.preventDefault()  
+            var max_temp= document.getElementById('max_temp');
+            var max_temp = max_temp.innerHTML;
+            var min_temp= document.getElementById('min_temp');
+            var min_temp = min_temp.innerHTML;
+            var temp_list = []
+            temp_list.push(max_temp)
+            temp_list.push(min_temp)
+            $.ajax({
+            type: 'POST',
+            url: "{% url 'index' %}",
+            data: temp_list,
+            function (data) {alert(data)},
+            error: function (data) {
+                // alert the error if any error occured
+                alert(data);
+            }
+        })
 
-            $('.wob_df:first-child').click(function(){
-                $('.wob_df').addClass('active');
-                $('#sub2').removeClass('active');
-                $('#sub3').removeClass('active');
-                $('#sub4').removeClass('active');
-                $('#sub5').removeClass('active');
-                $('#sub6').removeClass('active');
-                $('#sub7').removeClass('active');
-                $('#sub1').addClass('active');
-                $('.weather_title').show();
-                $('#sub1_area').show();
-                $('#sub2_area').hide();
-                $('#sub3_area').hide();
-                $('#sub4_area').hide();
-                $('#sub5_area').hide();
-                $('#sub6_area').hide();
-                $('#sub7_area').hide();
-            })
+        })
+    })
+
+        $(function(){
+        //         $('.wob_df').click(function(){          
+        //         var maxtemp= $('.wob_t').val()
+        //         console.log(maxtemp)
+                
+        //   $.ajax({
+        // url: 'temperature',
+        // data: {
+        //   'max_temp': maxtemp
+        // },
+
+        // success: function (data) {alert(data)}
+
+        //     });
+
+            // $('.wob_df').click(function(e){
+            //     // $('.wob_df:first-child').addClass('active');
+            //     $('#sub2').removeClass('active');
+            //     $('#sub3').removeClass('active');
+            //     $('#sub4').removeClass('active');
+            //     $('#sub5').removeClass('active');
+            //     $('#sub6').removeClass('active');
+            //     $('#sub7').removeClass('active');
+            //     $('#sub1').addClass('active');
+            //     $('.weather_title').show();
+            //     $('#sub1_area').show();
+            //     $('#sub2_area').hide();
+            //     $('#sub3_area').hide();
+            //     $('#sub4_area').hide();
+            //     $('#sub5_area').hide();
+            //     $('#sub6_area').hide();
+            //     $('#sub7_area').hide();
+            // })
             $('#sub2').click(function(){
                 $('#sub2').addClass('active');
                 $('#sub1').removeClass('active');
@@ -544,22 +582,6 @@
                 $('#sub7_area').show();
             })
         })
-        </script>
-
-        <script>
-            $(document).ready(function () { 
-                var top = $('#FilterArea').offset().top - parseFloat($('#FilterArea').css('marginTop').replace(/auto/, 0));
-                $(window).scroll(function (event) {
-                var y = $(this).scrollTop();
-        
-                if (y >= top) {
-                    $('#FilterArea').addClass('fixed');
-                } else {
-                    $('#FilterArea').removeClass('fixed');
-                }
-            });
-        });
-
         </script>
     </head>
 
@@ -838,22 +860,14 @@
                                     <div data-v-398553cd="" class="swiper-slide" data-swiper-slide-index="3" style="height: 60px;">
                                         <a data-v-398553cd="" href="https://www.lotteon.com/search/search/search.ecn?render=search&amp;platform=pc&amp;q=%EC%8B%A4%EB%A6%AC%ED%8A%B8%EC%8B%A4%EB%9D%BC%EA%B0%84%EB%83%84%EB%B9%84&amp;mallId=1" class="linkWrap">
                                             <span data-v-398553cd="" class="rank">4</span>
-                                            <span data-v-398553cd="" class="keyword">실리트실라간냄비</span><!---->
-                                            <span data-v-398553cd="" class="rankdown">3
-                                                <span data-v-398553cd="" class="flag down"></span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div data-v-398553cd="" class="swiper-slide" data-swiper-slide-index="4" style="height: 60px;">
-                                        <a data-v-398553cd="" href="https://www.lotteon.com/search/search/search.ecn?render=search&amp;platform=pc&amp;q=%EB%B2%84%EC%A6%88%EB%9D%BC%EC%9D%B4%EB%B8%8C&amp;mallId=1" class="linkWrap">
-                                            <span data-v-398553cd="" class="rank">5</span>
-                                            <span data-v-398553cd="" class="keyword">버즈라이브</span><!---->
-                                            <span data-v-398553cd="" class="rankup">4
-                                                <span data-v-398553cd="" class="flag up"></span>
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div data-v-398553cd="" class="swiper-slide" data-swiper-slide-index="5" style="height: 60px;"><a data-v-398553cd="" href="https://www.lotteon.com/search/search/search.ecn?render=search&amp;platform=pc&amp;q=%EB%9D%BC%EC%9D%B8%EC%9B%90%ED%94%BC%EC%8A%A4&amp;mallId=1" class="linkWrap"><span data-v-398553cd="" class="rank">6</span><span data-v-398553cd="" class="keyword">
+                                            <span data-v-398553cd="" class="keyword">실리트실라간냄비
+          </span><!----><span data-v-398553cd="" class="rankdown">
+            3
+            <span data-v-398553cd="" class="flag down"></span></span></a></div><div data-v-398553cd="" class="swiper-slide" data-swiper-slide-index="4" style="height: 60px;"><a data-v-398553cd="" href="https://www.lotteon.com/search/search/search.ecn?render=search&amp;platform=pc&amp;q=%EB%B2%84%EC%A6%88%EB%9D%BC%EC%9D%B4%EB%B8%8C&amp;mallId=1" class="linkWrap"><span data-v-398553cd="" class="rank">5</span><span data-v-398553cd="" class="keyword">
+            버즈라이브
+          </span><!----><span data-v-398553cd="" class="rankup">
+            4
+            <span data-v-398553cd="" class="flag up"></span></span></a></div><div data-v-398553cd="" class="swiper-slide" data-swiper-slide-index="5" style="height: 60px;"><a data-v-398553cd="" href="https://www.lotteon.com/search/search/search.ecn?render=search&amp;platform=pc&amp;q=%EB%9D%BC%EC%9D%B8%EC%9B%90%ED%94%BC%EC%8A%A4&amp;mallId=1" class="linkWrap"><span data-v-398553cd="" class="rank">6</span><span data-v-398553cd="" class="keyword">
             라인원피스
           </span><!----><span data-v-398553cd="" class="ranknone">
             
@@ -1025,7 +1039,7 @@
     <section class="srchTitleArea">
         <h2 class="titBig"><strong>패션</strong></h2>
     </section> 
-    <section data-area="cate_filter" class="srchFilterArea" id="FilterArea">
+    <section data-area="cate_filter" class="srchFilterArea">
         <div class="srchFilterTitle">
             <h3>필터</h3> 
             <button type="button" class="srchRoundButton srchResetButton ">초기화</button>
@@ -1050,7 +1064,7 @@
         </ul> 
         <ul class="srchFilterAccordion">
             <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">카테고리</button> 
+                <button type="button" class="srchFilterAccordionButton ">카테고리</button> 
                 <div class="srchFilterAccordionPanel srchFilterCategory">
                     <div class="srchFilterOption srchFilterDepthOptionNoPrev">
                         <label class="srchFiltering">
@@ -1097,581 +1111,8 @@
                             </a>
                         </li> 
                         <li class="srchFilterOption">
-                            <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200004&amp;mallId=1" data-object="cat_id=ec10200004" class="srchFiltering ">
-                                <span class="srchFilteringText ">
-                                    <span>여성속옷/잠옷</span>
-                                </span>
-                            </a>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200005&amp;mallId=1" data-object="cat_id=ec10200005" class="srchFiltering ">
-                                <span class="srchFilteringText ">
-                                    <span>남성속옷/잠옷</span>
-                                </span>
-                            </a>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200006&amp;mallId=1" data-object="cat_id=ec10200006" class="srchFiltering ">
-                                <span class="srchFilteringText ">
-                                    <span>아동언더웨어/잠옷</span>
-                                </span>
-                            </a>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200007&amp;mallId=1" data-object="cat_id=ec10200007" class="srchFiltering ">
-                                <span class="srchFilteringText ">
-                                    <span>세트속옷/잠옷</span>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li> 
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">매장</button> 
-                <div class="srchFilterAccordionPanel">
-                    <ul>
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="le" data-object="mall_type=ellotte" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>롯데백화점</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="lm" data-object="mall_type=lottemart" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>롯데마트</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="lb" data-object="mall_type=lohbs" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>롭스</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="lh" data-object="mall_type=himart" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>하이마트</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="li" data-object="mall_type=lottehomeshopping" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>롯데홈쇼핑</span>
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </li> 
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">브랜드</button> 
-                <div class="srchFilterAccordionPanel srchFilterAccordionItemMore">
-                    <ul>
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p2861" data-object="brnd_id=p2861" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>어도어럭스</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p2980" data-object="brnd_id=p2980" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>에이비에프지</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p5973" data-object="brnd_id=p5973" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>보나핏</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1655" data-object="brnd_id=p1655" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>반에이크</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1170" data-object="brnd_id=p1170" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>리스트</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1970" data-object="brnd_id=p1970" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>비너스</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1143" data-object="brnd_id=p1143" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>리바이스</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p4549" data-object="brnd_id=p4549" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>폴앤폴</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p4414" data-object="brnd_id=p4414" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>파파브로</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p3227" data-object="brnd_id=p3227" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>오프화이트</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p2721" data-object="brnd_id=p2721" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>아이우먼</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p2411" data-object="brnd_id=p2411" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>스톤아일랜드</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p2299" data-object="brnd_id=p2299" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>쉬즈미스</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1987" data-object="brnd_id=p1987" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>비비안</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p753" data-object="brnd_id=p753" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>디스퀘어드2</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1321" data-object="brnd_id=p1321" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>막스카라</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1481" data-object="brnd_id=p1481" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>몽클레르</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p2814" data-object="brnd_id=p2814" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>애드호크</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1507" data-object="brnd_id=p1507" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>미니멈</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBrand" value="p1703" data-object="brnd_id=p1703" class="_brandItem"> 
-                                <span class="srchFilteringText">
-                                    <span>버커루</span>
-                                </span>
-                            </label>
-                        </li>
-                    </ul> 
-                    <button class="srchFilterPlusButton">더보기</button>
-                </div>
-            </li> 
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">배송</button> 
-                <div class="srchFilterAccordionPanel">
-                    <ul>
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="rd" disabled="disabled" data-object="shipping_type=rd" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>정기배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="fd" data-object="shipping_type=fd" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>무료배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="qd_n" data-object="shipping_type=qd_n" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>스마트퀵</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="qd_r" data-object="shipping_type=qd_r" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>바로배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="td bd" data-object="shipping_type=td bd" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>매장배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="od" data-object="shipping_type=od" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>해외직구</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="id" disabled="disabled" data-object="shipping_type=id" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>설치배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="hd" disabled="disabled" data-object="shipping_type=hd" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>희망일 배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="smp" data-object="shipping_type=smp" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>스마트픽</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="dd" data-object="shipping_type=dd" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>새벽배송</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterDelivery" value="ts_sat" data-object="shipping_type=ts_sat" class="_deliveryItem"> 
-                                <span class="srchFilteringText">
-                                    <span>오늘발송</span>
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </li> 
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">혜택</button> 
-                <div class="srchFilterAccordionPanel">
-                    <ul>
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBenefit" value="on" data-object="benefit_type=oners" class="_benefitItem"> 
-                                <span class="srchFilteringText">
-                                    <span>롯데오너스 추가 할인</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBenefit" value="gft" disabled="disabled" data-object="benefit_type=gft" class="_benefitItem"> 
-                                <span class="srchFilteringText">
-                                    <span>사은품</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBenefit" value="mb" data-object="benefit_type=more_sale" class="_benefitItem"> 
-                                <span class="srchFilteringText">
-                                    <span>살수록 할인</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBenefit" value="np" disabled="disabled" data-object="benefit_type=bonus" class="_benefitItem"> 
-                                <span class="srchFilteringText">
-                                    <span>덤증정</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBenefit" value="lp" data-object="benefit_type=lpoint" class="_benefitItem"> 
-                                <span class="srchFilteringText">
-                                    <span>L.POINT 추가 적립</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterBenefit" value="cd" disabled="disabled" data-object="benefit_type=interest_free" class="_benefitItem"> 
-                                <span class="srchFilteringText">
-                                    <span>무이자 할부</span>
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </li> 
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">가격</button> 
-                <div class="srchFilterAccordionPanel">
-                    <ul class="srchFilterPriceArea">
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterPrice" value="0 40000" data-object="price=0-40000" class="_priceItem"> 
-                                <span class="srchFilteringText">
-                                    <span>4만원 이하</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterPrice" value="40000 70000" data-object="price=40000-70000" class="_priceItem"> 
-                                <span class="srchFilteringText">
-                                    <span>4만원~7만원</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterPrice" value="70000 110000" data-object="price=70000-110000" class="_priceItem"> 
-                                <span class="srchFilteringText">
-                                    <span>7만원~11만원</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterPrice" value="110000 140000" data-object="price=110000-140000" class="_priceItem"> 
-                                <span class="srchFilteringText">
-                                    <span>11만원~14만원</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterPrice" value="140000 2147483647" data-object="price=140000-2147483647" class="_priceItem"> 
-                                <span class="srchFilteringText">
-                                    <span>14만원 이상</span>
-                                </span>
-                            </label>
-                        </li>
-                    </ul> 
-                    <div class="srchFilterPriceRangeArea">
-                        <div class="srchFilterPriceRangeInput">
-                            <input type="text" title="최소가격" placeholder="0" class="_priceItem _srchFilterAmountFrom"> 
-                            <span>~</span> 
-                            <input type="text" title="최대가격" placeholder="2147483647" class="_priceItem _srchFilterAmountTo"> 
-                            <span>원</span>
-                        </div> 
-                        <button type="button" data-object="price=0-2147483647" class="srchRoundButton">적용하기</button>
-                    </div>
-                </div>
-            </li> 
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">별점</button> 
-                <div class="srchFilterAccordionPanel">
-                    <ul class="srchFilterRatingArea">
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterRate" value="4 5" data-object="star=over_4" class="_starItem"> 
-                                <div class="srchRating">
-                                    <span class="srchRatingStar">
-                                        <span class="srchRatingStarYellow" style="width: 80%;"></span>
-                                    </span> 
-                                    <span class="srchRatingScore">4점 이상</span>
-                                </div>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterRate" value="3 4 5" data-object="star=over_3" class="_starItem"> 
-                                <div class="srchRating">
-                                    <span class="srchRatingStar">
-                                        <span class="srchRatingStarYellow" style="width: 60%;"></span>
-                                    </span> 
-                                    <span class="srchRatingScore">3점 이상</span>
-                                </div>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterRate" value="2 3 4 5" data-object="star=over_2" class="_starItem"> 
-                                <div class="srchRating">
-                                    <span class="srchRatingStar">
-                                        <span class="srchRatingStarYellow" style="width: 40%;"></span>
-                                    </span> 
-                                    <span class="srchRatingScore">2점 이상</span>
-                                </div>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption">
-                            <label class="srchFiltering">
-                                <input type="radio" name="filterRate" value="1 2 3 4 5" data-object="star=over_1" class="_starItem"> 
-                                <div class="srchRating">
-                                    <span class="srchRatingStar">
-                                        <span class="srchRatingStarYellow" style="width: 20%;"></span>
-                                    </span> 
-                                    <span class="srchRatingScore">1점 이상</span>
-                                </div>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li class="srchFilterAccordionList">
-                <button type="button" class="srchFilterAccordionButton hide">기온</button> 
-                <div class="srchFilterAccordionPanel">
-                    <ul>
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="le" data-object="mall_type=ellotte" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>28도~</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="lm" data-object="mall_type=lottemart" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>23도~26도</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="lb" data-object="mall_type=lohbs" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>20도~22도</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="lh" data-object="mall_type=himart" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>17도~19도</span>
-                                </span>
-                            </label>
-                        </li> 
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="li" data-object="mall_type=lottehomeshopping" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>12도~16도</span>
-                                </span>
-                            </label>
-                        </li>
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="li" data-object="mall_type=lottehomeshopping" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>9도~11도</span>
-                                </span>
-                            </label>
-                        </li>
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="li" data-object="mall_type=lottehomeshopping" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>5도~8도</span>
-                                </span>
-                            </label>
-                        </li>
-                        <li class="srchFilterOption filterOption">
-                            <label class="srchFiltering">
-                                <input type="checkbox" name="filterMall" value="li" data-object="mall_type=lottehomeshopping" class="_storeItem"> 
-                                <span class="srchFilteringText">
-                                    <span>~4도</span>
-                                </span>
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </li> 
-        </ul>
-    </section> 
+                            <a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200004&amp;mallId=1" data-object="cat_id=ec10200004" class="srchFiltering "><span class="srchFilteringText "><span>여성속옷/잠옷</span></span></a></li> <li class="srchFilterOption"><a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200005&amp;mallId=1" data-object="cat_id=ec10200005" class="srchFiltering "><span class="srchFilteringText "><span>남성속옷/잠옷</span></span></a></li> <li class="srchFilterOption"><a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200006&amp;mallId=1" data-object="cat_id=ec10200006" class="srchFiltering "><span class="srchFilteringText "><span>아동언더웨어/잠옷</span></span></a></li> <li class="srchFilterOption"><a href="https://www.lotteon.com/search/render/render.ecn?render=nqapi&amp;platform=pc&amp;collection_id=9&amp;login=Y&amp;u9=navigate&amp;u8=EC10200007&amp;mallId=1" data-object="cat_id=ec10200007" class="srchFiltering "><span class="srchFilteringText "><span>세트속옷/잠옷</span></span></a></li></ul></div></li> <li class="srchFilterAccordionList"><button type="button" class="srchFilterAccordionButton">매장</button> <div class="srchFilterAccordionPanel"><ul><li class="srchFilterOption filterOption"><label class="srchFiltering"><input type="checkbox" name="filterMall" value="le" data-object="mall_type=ellotte" class="_storeItem"> <span class="srchFilteringText"><span>롯데백화점</span></span></label></li> <li class="srchFilterOption filterOption"><label class="srchFiltering"><input type="checkbox" name="filterMall" value="lm" data-object="mall_type=lottemart" class="_storeItem"> <span class="srchFilteringText"><span>롯데마트</span></span></label></li> <li class="srchFilterOption filterOption"><label class="srchFiltering"><input type="checkbox" name="filterMall" value="lb" data-object="mall_type=lohbs" class="_storeItem"> <span class="srchFilteringText"><span>롭스</span></span></label></li> <li class="srchFilterOption filterOption"><label class="srchFiltering"><input type="checkbox" name="filterMall" value="lh" data-object="mall_type=himart" class="_storeItem"> <span class="srchFilteringText"><span>하이마트</span></span></label></li> <li class="srchFilterOption filterOption"><label class="srchFiltering"><input type="checkbox" name="filterMall" value="li" data-object="mall_type=lottehomeshopping" class="_storeItem"> <span class="srchFilteringText"><span>롯데홈쇼핑</span></span></label></li></ul></div></li> <li class="srchFilterAccordionList"><button type="button" class="srchFilterAccordionButton">브랜드</button> <div class="srchFilterAccordionPanel srchFilterAccordionItemMore"><ul><li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p2861" data-object="brnd_id=p2861" class="_brandItem"> <span class="srchFilteringText"><span>어도어럭스</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p2980" data-object="brnd_id=p2980" class="_brandItem"> <span class="srchFilteringText"><span>에이비에프지</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p5973" data-object="brnd_id=p5973" class="_brandItem"> <span class="srchFilteringText"><span>보나핏</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1655" data-object="brnd_id=p1655" class="_brandItem"> <span class="srchFilteringText"><span>반에이크</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1170" data-object="brnd_id=p1170" class="_brandItem"> <span class="srchFilteringText"><span>리스트</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1970" data-object="brnd_id=p1970" class="_brandItem"> <span class="srchFilteringText"><span>비너스</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1143" data-object="brnd_id=p1143" class="_brandItem"> <span class="srchFilteringText"><span>리바이스</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p4549" data-object="brnd_id=p4549" class="_brandItem"> <span class="srchFilteringText"><span>폴앤폴</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p4414" data-object="brnd_id=p4414" class="_brandItem"> <span class="srchFilteringText"><span>파파브로</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p3227" data-object="brnd_id=p3227" class="_brandItem"> <span class="srchFilteringText"><span>오프화이트</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p2721" data-object="brnd_id=p2721" class="_brandItem"> <span class="srchFilteringText"><span>아이우먼</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p2411" data-object="brnd_id=p2411" class="_brandItem"> <span class="srchFilteringText"><span>스톤아일랜드</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p2299" data-object="brnd_id=p2299" class="_brandItem"> <span class="srchFilteringText"><span>쉬즈미스</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1987" data-object="brnd_id=p1987" class="_brandItem"> <span class="srchFilteringText"><span>비비안</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p753" data-object="brnd_id=p753" class="_brandItem"> <span class="srchFilteringText"><span>디스퀘어드2</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1321" data-object="brnd_id=p1321" class="_brandItem"> <span class="srchFilteringText"><span>막스카라</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1481" data-object="brnd_id=p1481" class="_brandItem"> <span class="srchFilteringText"><span>몽클레르</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p2814" data-object="brnd_id=p2814" class="_brandItem"> <span class="srchFilteringText"><span>애드호크</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1507" data-object="brnd_id=p1507" class="_brandItem"> <span class="srchFilteringText"><span>미니멈</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBrand" value="p1703" data-object="brnd_id=p1703" class="_brandItem"> <span class="srchFilteringText"><span>버커루</span></span></label></li></ul> <button class="srchFilterPlusButton">더보기</button></div></li> <li class="srchFilterAccordionList"><button type="button" class="srchFilterAccordionButton">배송</button> <div class="srchFilterAccordionPanel"><ul><li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="rd" disabled="disabled" data-object="shipping_type=rd" class="_deliveryItem"> <span class="srchFilteringText"><span>정기배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="fd" data-object="shipping_type=fd" class="_deliveryItem"> <span class="srchFilteringText"><span>무료배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="qd_n" data-object="shipping_type=qd_n" class="_deliveryItem"> <span class="srchFilteringText"><span>스마트퀵</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="qd_r" data-object="shipping_type=qd_r" class="_deliveryItem"> <span class="srchFilteringText"><span>바로배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="td bd" data-object="shipping_type=td bd" class="_deliveryItem"> <span class="srchFilteringText"><span>매장배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="od" data-object="shipping_type=od" class="_deliveryItem"> <span class="srchFilteringText"><span>해외직구</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="id" disabled="disabled" data-object="shipping_type=id" class="_deliveryItem"> <span class="srchFilteringText"><span>설치배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="hd" disabled="disabled" data-object="shipping_type=hd" class="_deliveryItem"> <span class="srchFilteringText"><span>희망일 배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="smp" data-object="shipping_type=smp" class="_deliveryItem"> <span class="srchFilteringText"><span>스마트픽</span></span></label></li> <li class="srchFilterOption">
+                                <label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="dd" data-object="shipping_type=dd" class="_deliveryItem"> <span class="srchFilteringText"><span>새벽배송</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterDelivery" value="ts_sat" data-object="shipping_type=ts_sat" class="_deliveryItem"> <span class="srchFilteringText"><span>오늘발송</span></span></label></li></ul></div></li> <li class="srchFilterAccordionList"><button type="button" class="srchFilterAccordionButton">혜택</button> <div class="srchFilterAccordionPanel"><ul><li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBenefit" value="on" data-object="benefit_type=oners" class="_benefitItem"> <span class="srchFilteringText"><span>롯데오너스 추가 할인</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBenefit" value="gft" disabled="disabled" data-object="benefit_type=gft" class="_benefitItem"> <span class="srchFilteringText"><span>사은품</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBenefit" value="mb" data-object="benefit_type=more_sale" class="_benefitItem"> <span class="srchFilteringText"><span>살수록 할인</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBenefit" value="np" disabled="disabled" data-object="benefit_type=bonus" class="_benefitItem"> <span class="srchFilteringText"><span>덤증정</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBenefit" value="lp" data-object="benefit_type=lpoint" class="_benefitItem"> <span class="srchFilteringText"><span>L.POINT 추가 적립</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="checkbox" name="filterBenefit" value="cd" disabled="disabled" data-object="benefit_type=interest_free" class="_benefitItem"> <span class="srchFilteringText"><span>무이자 할부</span></span></label></li></ul></div></li> <li class="srchFilterAccordionList"><button type="button" class="srchFilterAccordionButton">가격</button> <div class="srchFilterAccordionPanel"><ul class="srchFilterPriceArea"><li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterPrice" value="0 40000" data-object="price=0-40000" class="_priceItem"> <span class="srchFilteringText"><span>4만원 이하</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterPrice" value="40000 70000" data-object="price=40000-70000" class="_priceItem"> <span class="srchFilteringText"><span>4만원~7만원</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterPrice" value="70000 110000" data-object="price=70000-110000" class="_priceItem"> <span class="srchFilteringText"><span>7만원~11만원</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterPrice" value="110000 140000" data-object="price=110000-140000" class="_priceItem"> <span class="srchFilteringText"><span>11만원~14만원</span></span></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterPrice" value="140000 2147483647" data-object="price=140000-2147483647" class="_priceItem"> <span class="srchFilteringText"><span>14만원 이상</span></span></label></li></ul> <div class="srchFilterPriceRangeArea"><div class="srchFilterPriceRangeInput"><input type="text" title="최소가격" placeholder="0" class="_priceItem _srchFilterAmountFrom"> <span>~</span> <input type="text" title="최대가격" placeholder="2147483647" class="_priceItem _srchFilterAmountTo"> <span>원</span></div> <button type="button" data-object="price=0-2147483647" class="srchRoundButton">적용하기</button></div></div></li> <li class="srchFilterAccordionList"><button type="button" class="srchFilterAccordionButton">별점</button> <div class="srchFilterAccordionPanel"><ul class="srchFilterRatingArea"><li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterRate" value="4 5" data-object="star=over_4" class="_starItem"> <div class="srchRating"><span class="srchRatingStar"><span class="srchRatingStarYellow" style="width: 80%;"></span></span> <span class="srchRatingScore">4점 이상</span></div></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterRate" value="3 4 5" data-object="star=over_3" class="_starItem"> <div class="srchRating"><span class="srchRatingStar"><span class="srchRatingStarYellow" style="width: 60%;"></span></span> <span class="srchRatingScore">3점 이상</span></div></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterRate" value="2 3 4 5" data-object="star=over_2" class="_starItem"> <div class="srchRating"><span class="srchRatingStar"><span class="srchRatingStarYellow" style="width: 40%;"></span></span> <span class="srchRatingScore">2점 이상</span></div></label></li> <li class="srchFilterOption"><label class="srchFiltering"><input type="radio" name="filterRate" value="1 2 3 4 5" data-object="star=over_1" class="_starItem"> <div class="srchRating"><span class="srchRatingStar"><span class="srchRatingStarYellow" style="width: 20%;"></span></span> <span class="srchRatingScore">1점 이상</span></div></label></li></ul></div></li></ul></section> 
 
                                 {% block contents %}
                                 {% endblock %}

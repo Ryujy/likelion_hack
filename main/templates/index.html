@@ -5,14 +5,15 @@
 <section class="srchResultContentArea">
     <section id = "weather_function">
         <div class="weather_title">기온에 맞는 코디추천</div>
-        <div class="weather_info">
-            <p>원하시는 날씨를 선택하세요.</p>
+        <div class="weather_info" style="height:100%">
+           
             {% if weather_data %}
+          
             <div class="g knavi obcontainer mod" data-md="2">
                 <!--m-->
                 <div data-hveid="CAIQAA" data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQohIwAHoECAIQAA">
 
-                    <div class="vk_c nawv0d" id="wob_wc"><span aria-level="3" role="heading">
+                    <div class="vk_c nawv0d" id="wob_wc" style="height:100%; "><span aria-level="3" role="heading">
                             <div class="wob_loc mfMhoc vk_gy vk_h" id="wob_loc">{{weather_data.region}}</div>
                             <div class="wob_dts vk_gy vk_sh" id="wob_dts">{{weather_data.date_time}}</div>
                             <div class="wob_dcp" id="wob_dcp"><span class="vk_gy vk_sh" id="wob_dc">{{weather_data.desc}}</span>
@@ -20,7 +21,7 @@
                         </span>
                         <div id="wob_d"
                             style="font:16px arial,helvetica,sans-serif;padding:20px 0 0;-webkit-touch-callout:none;-webkit-user-select:none">
-                            <div><img class="wob_tci" alt="Clear" src="//ssl.gstatic.com/onebox/weather/64/sunny.png"
+                            <div><img class="wob_tci" alt="Clear" width="42px" src="//ssl.gstatic.com/onebox/weather/64/sunny.png"
                                     id="wob_tci">
                                 <div class="Ab33Nc" aria-level="3" role="heading">
                                     <div>
@@ -29,28 +30,31 @@
                                                 id="wob_ttm" style="display:none">39</span></div>
 
                                     </div>
-
+                                </div>
                                 </div>
 
                             </div>
-                        </div>
+                        
+                    </div> 
                         <div class="gic rr3bxd">
+                       
                             <div class="wob_dfc" id="wob_dp" data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQimswAHoECAIQDA" style="left: 0px;
                             top: 0px;
                             transform: translate3d(0px, 0px, 0px);
                             display: flex;">
                                 {% for day, image, maxtemp, mintemp in associate%}
                                 <div class="wob_df wob_ds" data-wob-di="0" role="button" tabindex="0"
-                                    data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQi2soADAAegQIAhAN">
+                                    data-ved="2ahUKEwj10qbPgcvsAhVI_GEKHYr-DkgQi2soADAAegQIAhAN" id="weather_tab">
                                     <div class="QrNVmd Z1VzSb" aria-label="Saturday">{{day}}</div>
                                     <div class="DxhUm"><img class="uW5pk" alt="Sunny"
                                             src="{{image}}"></div>
                                     <div class="wNE31c">
-                                        <div class="vk_gy gNCp2e"><span class="wob_t" style="display:inline">{{maxtemp}}</span><span
+                                        <div class="vk_gy gNCp2e"><span class="wob_t" id="max_temp" style="display:inline">{{maxtemp}}</span><span
                                                 class="wob_t" style="display:none">56</span>&deg;</div>
-                                        <div class="QrNVmd ZXCv8e"><span class="wob_t" style="display:inline">{{mintemp}}</span><span
+                                        <div class="QrNVmd ZXCv8e"><span class="wob_t" id="min_temp"style="display:inline" >{{mintemp}}</span><span
                                                 class="wob_t" style="display:none">37</span>&deg;</div>
                                     </div>
+                                
                                 </div>
                                 {%endfor%}
                             </div>
@@ -64,7 +68,7 @@
 
             </div>
             {% endif %}
-        </div>
+       
         <div id="sub1_area" class="weather_style"> <!--1-->
             <div class="align">
                 <div class="weather_style1">
@@ -425,3 +429,7 @@
     </section>
 </section>
 {% endblock %}
+<script>
+
+   
+</script>
